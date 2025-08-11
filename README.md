@@ -23,18 +23,8 @@ What it shows: FTP transmits authentication credentials in plaintext on TCP port
 Security implication: Credentials can be intercepted by an on-path attacker; use FTPS or SFTP instead.
 
 4) HTTP
-What to capture for evidence: GET requests and HTTP/1.1 200 OK responses (for example http://neverssl.com).
+What to capture for evidence: GET requests and HTTP/1.1 200 OK responses (for example http://example.com).
 Security implication: HTTP is unencrypted; all content and headers are visible in the capture.
-
----
-
-## Capture Details
-- Capture duration: Approximately 1-2 minutes  
-- Capture type: Live capture on active network interface  
-- Total packets captured: [total packet count from Wireshark]  
-- File: `YourName_Task5_MultiProtocolCapture.pcap`
-
-
 
 ---
 
@@ -43,7 +33,7 @@ Security implication: HTTP is unencrypted; all content and headers are visible i
 | Protocol | Description | Packet Example | Key Observations | Security Implications |
 | -------- | ----------- | -------------- | ---------------- | --------------------- |
 | **FTP** (File Transfer Protocol) | A protocol for transferring files over a network. It sends data, including usernames and passwords, in plaintext. | Packet #45 (USER demo), Packet #46 (PASS password) | Plaintext credentials captured, `LIST` and `RETR` commands visible | FTP is insecure; credentials can be intercepted. Use FTPS or SFTP instead. |
-| **HTTP** (Hypertext Transfer Protocol) | Protocol for unencrypted web browsing. | Packet #120 (GET http://neverssl.com/) | Clear GET requests and server responses with HTML content | Data is unencrypted and vulnerable to interception or tampering. |
+| **HTTP** (Hypertext Transfer Protocol) | Protocol for unencrypted web browsing. | Packet #120 (GET http://example.com/) | Clear GET requests and server responses with HTML content | Data is unencrypted and vulnerable to interception or tampering. |
 | **TLS/HTTPS** (Transport Layer Security) | Protocol for encrypted secure web communication. | Packet #188 (TLS Client Hello to www.openai.com) | Encrypted handshake visible; content not readable | Protects confidentiality and integrity of data in transit. |
 | **DNS** (Domain Name System) | Resolves domain names to IP addresses. | Packet #25 (Query for example.com), Packet #26 (Response) | Clear query/response pairs; essential for name resolution | DNS queries are often unencrypted, vulnerable to spoofing or interception. |
 | **ICMP** (Internet Control Message Protocol) | Used for diagnostic tools like ping. | Packet #8266 (Destination unreachable) | Network error message indicating unreachable ports | Normal network behavior; useful for troubleshooting connectivity issues. |
@@ -54,7 +44,7 @@ Security implication: HTTP is unencrypted; all content and headers are visible i
 
 - Successfully captured multiple protocols on a live network including FTP, HTTP, TLS/HTTPS, DNS, and ICMP.  
 - **FTP traffic revealed plaintext login credentials (`demo` / `password`)**, underscoring FTP's security weaknesses.  
-- HTTP traffic showed unencrypted web requests to non-HTTPS sites such as `neverssl.com`.  
+- HTTP traffic showed unencrypted web requests to non-HTTPS sites such as `example.com`.  
 - TLS packets demonstrated the handshake process for secure web communication, including Server Name Indication (SNI).  
 - DNS queries and responses were clearly visible, showing the translation of domain names to IP addresses.  
 - An ICMP “Destination unreachable (Port unreachable)” message was captured, illustrating common network error diagnostics.
