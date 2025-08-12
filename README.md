@@ -26,6 +26,11 @@ Security implication: Credentials can be intercepted by an on-path attacker; use
 What to capture for evidence: GET requests and HTTP/1.1 200 OK responses (for example http://example.com).
 Security implication: HTTP is unencrypted; all content and headers are visible in the capture.
 
+
+5) DNS
+What to capture for evidence: DNS query/response pairs (e.g., Query: example.com → Response: A 93.184.216.34)
+Security implication: DNS queries are typically in plaintext (UDP/53) and can reveal user browsing intent; consider DoH/DoT for privacy.
+
 ---
 
 ## Protocols Identified and Analyzed
@@ -52,7 +57,16 @@ Security implication: HTTP is unencrypted; all content and headers are visible i
 ---
 
 ## Screenshots  
-_(Insert here relevant screenshots you took in Wireshark, with short captions describing the protocol and key points.)_
+
+
+<img width="1629" height="924" alt="Screenshot 2025-08-11 205625" src="https://github.com/user-attachments/assets/75e8060f-de9a-4b4c-9320-5cd1cff0a141" />
+
+
+<img width="1629" height="926" alt="Screenshot 2025-08-11 212625" src="https://github.com/user-attachments/assets/442385bf-c406-4437-9dd1-221aaa3fe74f" />
+
+
+
+
 
 ---
 
